@@ -31,11 +31,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
 
     private StockAdapterOnClickHandler clickHandler;
 
-    public interface StockAdapterOnClickHandler{
-        void onClick(String symbol);
-    }
-
-
     public StockAdapter(Context context, StockAdapterOnClickHandler clickHandler) {
         this.context = context;
         this.clickHandler = clickHandler;
@@ -98,10 +93,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         }
 
 
-
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -110,6 +102,11 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
             count = cursor.getCount();
         }
         return count;
+    }
+
+
+    public interface StockAdapterOnClickHandler {
+        void onClick(String symbol);
     }
 
     public class StockViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -130,7 +127,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         }
 
         @Override
-        public void  onClick(View v) {
+        public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
             cursor.moveToPosition(adapterPosition);
             int symbolColumn = cursor.getColumnIndex(Contract.Quote.COLUMN_SYMBOL);

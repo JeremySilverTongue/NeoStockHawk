@@ -10,9 +10,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.widget.RemoteViews;
 
+import com.udacity.silver.stockhawk.GraphActivity;
 import com.udacity.silver.stockhawk.MainActivity;
 import com.udacity.silver.stockhawk.R;
-import com.udacity.silver.stockhawk.GraphActivity;
 import com.udacity.silver.stockhawk.sync.QuoteSyncJob;
 
 

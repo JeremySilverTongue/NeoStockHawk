@@ -37,16 +37,12 @@ public class GraphActivity extends AppCompatActivity implements LoaderManager.Lo
 
 
     private static final int LOADER_ID = 0;
-
-    private YAxisValueFormatter yFormatter;
-    private XAxisValueFormatter xFormatter;
-
-
     @BindView(R.id.symbol)
     TextView symbol;
-
     @BindView(R.id.chart)
     LineChart chart;
+    private YAxisValueFormatter yFormatter;
+    private XAxisValueFormatter xFormatter;
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

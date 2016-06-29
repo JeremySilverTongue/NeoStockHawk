@@ -56,7 +56,7 @@
 
         <activity
             android:name=".GraphActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

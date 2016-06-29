@@ -33,14 +33,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         SwipeRefreshLayout.OnRefreshListener,
         StockAdapter.StockAdapterOnClickHandler {
 
-    @Override
-    public void onClick(String symbol) {
-        Timber.d("Symbol clicked: %s", symbol);
-        Intent intent = new Intent(this, GraphActivity.class);
-        intent.setData(Contract.Quote.makeUriForStock(symbol));
-        startActivity(intent);
-    }
-
     private static final int STOCK_LOADER = 0;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -51,6 +43,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @BindView(R.id.error)
     TextView error;
     private StockAdapter adapter;
+
+    @Override
+    public void onClick(String symbol) {
+        Timber.d("Symbol clicked: %s", symbol);
+        Intent intent = new Intent(this, GraphActivity.class);
+        intent.setData(Contract.Quote.makeUriForStock(symbol));
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
