@@ -1,6 +1,5 @@
-package com.udacity.stockhawk;
+package com.udacity.stockhawk.ui;
 
-//import android.support.v7.widget.RecyclerView;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
 
@@ -20,18 +20,18 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
+class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
 
     final private Context context;
     private Cursor cursor;
 
-    private DecimalFormat dollarFormatWithPlus;
-    private DecimalFormat dollarFormat;
-    private DecimalFormat percentageFormat;
+    final private DecimalFormat dollarFormatWithPlus;
+    final private DecimalFormat dollarFormat;
+    final private DecimalFormat percentageFormat;
 
     private StockAdapterOnClickHandler clickHandler;
 
-    public StockAdapter(Context context, StockAdapterOnClickHandler clickHandler) {
+    StockAdapter(Context context, StockAdapterOnClickHandler clickHandler) {
         this.context = context;
         this.clickHandler = clickHandler;
 
@@ -44,12 +44,12 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         percentageFormat.setPositivePrefix("+");
     }
 
-    public void setCursor(Cursor cursor) {
+    void setCursor(Cursor cursor) {
         this.cursor = cursor;
         notifyDataSetChanged();
     }
 
-    public String getSymbolAtPosition(int position) {
+    String getSymbolAtPosition(int position) {
 
         cursor.moveToPosition(position);
         return cursor.getString(Contract.Quote.POSITION_SYMBOL);
@@ -105,11 +105,11 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
     }
 
 
-    public interface StockAdapterOnClickHandler {
+    interface StockAdapterOnClickHandler {
         void onClick(String symbol);
     }
 
-    public class StockViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class StockViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.symbol)
         TextView symbol;
@@ -120,7 +120,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         @BindView(R.id.change)
         TextView change;
 
-        public StockViewHolder(View itemView) {
+        StockViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);

@@ -10,9 +10,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by silver on 5/8/16.
- */
 public final class PrefUtils {
 
     private PrefUtils() {

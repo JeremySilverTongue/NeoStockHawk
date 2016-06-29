@@ -20,18 +20,16 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("CREATE TABLE ").append(Quote.TABLE_NAME).append(" (");
-        builder.append(Quote._ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        builder.append(Quote.COLUMN_SYMBOL).append(" TEXT NOT NULL, ");
-        builder.append(Quote.COLUMN_PRICE).append(" REAL NOT NULL, ");
-        builder.append(Quote.COLUMN_ABSOLUTE_CHANGE).append(" REAL NOT NULL, ");
-        builder.append(Quote.COLUMN_PERCENTAGE_CHANGE).append(" REAL NOT NULL, ");
-        builder.append(Quote.COLUMN_HISTORY).append(" TEXT NOT NULL, ");
+        String builder = "CREATE TABLE " + Quote.TABLE_NAME + " (" +
+                Quote._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                Quote.COLUMN_SYMBOL + " TEXT NOT NULL, " +
+                Quote.COLUMN_PRICE + " REAL NOT NULL, " +
+                Quote.COLUMN_ABSOLUTE_CHANGE + " REAL NOT NULL, " +
+                Quote.COLUMN_PERCENTAGE_CHANGE + " REAL NOT NULL, " +
+                Quote.COLUMN_HISTORY + " TEXT NOT NULL, " +
+                "UNIQUE (" + Quote.COLUMN_SYMBOL + ") ON CONFLICT REPLACE);";
 
-        builder.append("UNIQUE (").append(Quote.COLUMN_SYMBOL).append(") ON CONFLICT REPLACE);");
-
-        db.execSQL(builder.toString());
+        db.execSQL(builder);
 
     }
 

@@ -9,8 +9,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import timber.log.Timber;
-
 
 public class StockProvider extends ContentProvider {
 
@@ -88,13 +86,11 @@ public class StockProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, ContentValues values) {
-        Timber.d("Insterting: " + values.toString());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Uri returnUri;
 
         switch (uriMatcher.match(uri)) {
             case QUOTE:
-                Timber.d("Insterting: " + values.toString());
                 db.insert(
                         Contract.Quote.TABLE_NAME,
                         null,

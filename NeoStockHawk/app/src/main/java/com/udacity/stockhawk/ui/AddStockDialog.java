@@ -1,4 +1,4 @@
-package com.udacity.stockhawk;
+package com.udacity.stockhawk.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,9 +13,15 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.udacity.stockhawk.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class AddStockDialog extends DialogFragment {
 
+    @BindView(R.id.dialog_stock)
     EditText stock;
 
     @Override
@@ -26,7 +32,7 @@ public class AddStockDialog extends DialogFragment {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View custom = inflater.inflate(R.layout.add_stock_dialog, null);
 
-        stock = (EditText) custom.findViewById(R.id.dialog_stock);
+        ButterKnife.bind(this, custom);
 
         stock.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
