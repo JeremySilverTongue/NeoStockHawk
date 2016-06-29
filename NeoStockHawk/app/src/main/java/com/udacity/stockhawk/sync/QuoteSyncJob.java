@@ -5,14 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Looper;
-import android.widget.Toast;
 
 import com.google.android.gms.gcm.GcmNetworkManager;
 import com.google.android.gms.gcm.OneoffTask;
 import com.google.android.gms.gcm.PeriodicTask;
-import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
 
@@ -68,19 +64,16 @@ public final class QuoteSyncJob {
             while (iterator.hasNext()) {
                 String symbol = iterator.next();
 
-                if (!quotes.containsKey(symbol)) {
-                    notifyOfStockFailure(context, symbol);
-                    continue;
-                }
 
                 Stock stock = quotes.get(symbol);
                 StockQuote quote = stock.getQuote();
 
-                if (quote.getPrice() == null) {
-                    notifyOfStockFailure(context, symbol);
-                    continue;
-                }
+                float price = quote.getPrice().floatValue();
+                float change = quote.getChange().floatValue();
+                float percentChange = quote.getChangeInPercent().floatValue();
 
+                // WARNING! Don't request historical data for a stock that doesn't exist!
+                // The request will hang forever X_x
                 List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
                 StringBuilder historyBuilder = new StringBuilder();
@@ -92,16 +85,13 @@ public final class QuoteSyncJob {
                     historyBuilder.append("\n");
                 }
 
-                float price = quote.getPrice().floatValue();
-                float change = quote.getChange().floatValue();
-                float percentChange = quote.getChangeInPercent().floatValue();
-
-
                 ContentValues quoteCV = new ContentValues();
                 quoteCV.put(Contract.Quote.COLUMN_SYMBOL, symbol);
                 quoteCV.put(Contract.Quote.COLUMN_PRICE, price);
                 quoteCV.put(Contract.Quote.COLUMN_PERCENTAGE_CHANGE, percentChange);
                 quoteCV.put(Contract.Quote.COLUMN_ABSOLUTE_CHANGE, change);
+
+
                 quoteCV.put(Contract.Quote.COLUMN_HISTORY, historyBuilder.toString());
 
                 quoteCVs.add(quoteCV);
@@ -155,24 +145,7 @@ public final class QuoteSyncJob {
                     .setExecutionWindow(0, 60)
                     .setUpdateCurrent(true);
             GcmNetworkManager.getInstance(context).schedule(builder.build());
-
-
         }
-    }
-
-    private static void notifyOfStockFailure(final Context context, String symbol) {
-
-        PrefUtils.removeStock(context, symbol);
-
-        final String message = context.getString(R.string.error_stock_not_found, symbol);
-
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-            }
-        });
     }
 
 
