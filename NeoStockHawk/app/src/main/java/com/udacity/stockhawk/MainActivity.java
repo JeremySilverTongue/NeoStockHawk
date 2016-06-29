@@ -1,7 +1,6 @@
 package com.udacity.stockhawk;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -47,9 +46,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onClick(String symbol) {
         Timber.d("Symbol clicked: %s", symbol);
-        Intent intent = new Intent(this, GraphActivity.class);
-        intent.setData(Contract.Quote.makeUriForStock(symbol));
-        startActivity(intent);
     }
 
     @Override
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         new AddStockDialog().show(getFragmentManager(), "StockDialogFragment");
     }
 
-    public void addStock(String symbol) {
+    void addStock(String symbol) {
         if (symbol != null && !symbol.isEmpty()) {
 
             if (networkUp()) {
@@ -161,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        swipeRefreshLayout.setRefreshing(false);
         adapter.setCursor(null);
     }
 

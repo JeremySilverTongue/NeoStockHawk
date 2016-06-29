@@ -6,11 +6,7 @@ import com.google.android.gms.gcm.TaskParams;
 
 public class QuoteTaskService extends GcmTaskService {
 
-    public static final String TAG = QuoteTaskService.class.getSimpleName();
-
-    public static final String PERIODIC_TAG = TAG + " periodic";
-    public static final String ONEOFF_TAG = TAG + " oneoff";
-
+    static final String PERIODIC_TAG = QuoteTaskService.class.getSimpleName() + " periodic";
 
     @Override
     public int onRunTask(TaskParams taskParams) {

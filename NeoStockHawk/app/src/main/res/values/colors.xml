@@ -6,7 +6,6 @@
 
     <color name="backgroundColor">#484848</color>
 
-
     <color name="kagi_default_up_color">@color/material_green_700</color>
     <color name="kagi_default_down_color">@color/material_red_700</color>
 

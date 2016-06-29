@@ -57,10 +57,11 @@ public final class QuoteSyncJob {
             if (stockArray.length == 0) {
                 return;
             }
-            Map<String, Stock> quotes = YahooFinance.get(stockArray, from, to, Interval.WEEKLY);
 
-
+            Map<String, Stock> quotes = YahooFinance.get(stockArray);
             Iterator<String> iterator = stockCopy.iterator();
+
+            Timber.d(quotes.toString());
 
             ArrayList<ContentValues> quoteCVs = new ArrayList<>();
 
@@ -80,7 +81,7 @@ public final class QuoteSyncJob {
                     continue;
                 }
 
-                List<HistoricalQuote> history = stock.getHistory();
+                List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
                 StringBuilder historyBuilder = new StringBuilder();
 
@@ -90,8 +91,6 @@ public final class QuoteSyncJob {
                     historyBuilder.append(it.getClose());
                     historyBuilder.append("\n");
                 }
-
-//                Timber.d(historyBuilder.toString());
 
                 float price = quote.getPrice().floatValue();
                 float change = quote.getChange().floatValue();
