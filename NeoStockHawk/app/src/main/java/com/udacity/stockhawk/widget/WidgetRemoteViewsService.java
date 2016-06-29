@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.widget;
+package com.udacity.stockhawk.widget;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,9 +7,9 @@ import android.os.Binder;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.udacity.silver.stockhawk.R;
-import com.udacity.silver.stockhawk.data.Contract;
-import com.udacity.silver.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.R;
+import com.udacity.stockhawk.data.Contract;
+import com.udacity.stockhawk.data.PrefUtils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.widget;
+package com.udacity.stockhawk.widget;
 
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
@@ -10,10 +10,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.widget.RemoteViews;
 
-import com.udacity.silver.stockhawk.GraphActivity;
-import com.udacity.silver.stockhawk.MainActivity;
-import com.udacity.silver.stockhawk.R;
-import com.udacity.silver.stockhawk.sync.QuoteSyncJob;
+import com.udacity.stockhawk.GraphActivity;
+import com.udacity.stockhawk.MainActivity;
+import com.udacity.stockhawk.R;
+import com.udacity.stockhawk.sync.QuoteSyncJob;
 
 
 public class StockWidgetProvider extends AppWidgetProvider {

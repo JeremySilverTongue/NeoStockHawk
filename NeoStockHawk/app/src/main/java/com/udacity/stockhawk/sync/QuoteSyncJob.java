@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.sync;
+package com.udacity.stockhawk.sync;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,9 +12,9 @@ import android.widget.Toast;
 import com.google.android.gms.gcm.GcmNetworkManager;
 import com.google.android.gms.gcm.OneoffTask;
 import com.google.android.gms.gcm.PeriodicTask;
-import com.udacity.silver.stockhawk.R;
-import com.udacity.silver.stockhawk.data.Contract;
-import com.udacity.silver.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.R;
+import com.udacity.stockhawk.data.Contract;
+import com.udacity.stockhawk.data.PrefUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import yahoofinance.quotes.stock.StockQuote;
 
 public final class QuoteSyncJob {
 
-    public static final String ACTION_DATA_UPDATED = "com.udacity.silver.stockhawk.ACTION_DATA_UPDATED";
+    public static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
     public static final int PERIOD = 300;
 
     public static void getQuotes(Context context) {

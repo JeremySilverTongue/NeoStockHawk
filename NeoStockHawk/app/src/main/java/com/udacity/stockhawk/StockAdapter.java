@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk;
+package com.udacity.stockhawk;
 
 //import android.support.v7.widget.RecyclerView;
 
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.udacity.silver.stockhawk.data.Contract;
-import com.udacity.silver.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.data.Contract;
+import com.udacity.stockhawk.data.PrefUtils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk;
+package com.udacity.stockhawk;
 
 import android.app.Activity;
 import android.app.AlertDialog;

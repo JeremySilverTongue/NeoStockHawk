@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk;
+package com.udacity.stockhawk;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +21,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.udacity.silver.stockhawk.data.Contract;
-import com.udacity.silver.stockhawk.data.PrefUtils;
-import com.udacity.silver.stockhawk.sync.QuoteSyncJob;
+import com.udacity.stockhawk.data.Contract;
+import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.sync.QuoteSyncJob;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.views;
+package com.udacity.stockhawk.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.common.primitives.Doubles;
-import com.udacity.silver.stockhawk.R;
+import com.udacity.stockhawk.R;
 
 import java.util.ArrayList;
 import java.util.List;

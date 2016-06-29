@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.sync;
+package com.udacity.stockhawk.sync;
 
 import android.app.IntentService;
 import android.content.Intent;

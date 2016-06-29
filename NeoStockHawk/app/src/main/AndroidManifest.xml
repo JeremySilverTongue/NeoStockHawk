@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.udacity.silver.stockhawk">
+    package="com.udacity.stockhawk">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
@@ -35,7 +35,7 @@
 
         <provider
             android:name=".data.StockProvider"
-            android:authorities="com.udacity.silver.stockhawk"
+            android:authorities="com.udacity.stockhawk"
             android:exported="false" />
 
         <receiver

@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.data;
+package com.udacity.stockhawk.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

@@ -1,4 +1,4 @@
-package com.udacity.silver.stockhawk.sync;
+package com.udacity.stockhawk.sync;
 
 import com.google.android.gms.gcm.GcmTaskService;
 import com.google.android.gms.gcm.TaskParams;
