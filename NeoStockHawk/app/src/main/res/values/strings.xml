@@ -39,9 +39,4 @@
     <string name="widget_title">Stocks</string>
     <string name="widget_empty">No stock data available</string>
 
-    <string name="content_description_fab">Add new stock symbol</string>
-    <string name="content_description_to_dollars">Display change in dollars</string>
-    <string name="content_description_to_percentage">Display change in percent</string>
-    <string name="content_description_plot">Stock history plot</string>
-
 </resources>

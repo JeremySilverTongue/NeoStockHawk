@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.udacity.silver.stockhawk.MainActivity">
+    tools:context="com.udacity.stockhawk.MainActivity">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="@string/content_description_fab"
         android:onClick="button"
         android:src="@drawable/fab_plus"
         app:backgroundTint="@color/material_blue_500"
